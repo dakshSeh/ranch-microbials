@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranch Microbials</title>
+<style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #d6e9be, #f8f6e0);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color:#333;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, #3B8A3E, #2db431, #A5D6A7);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 25px 25px;
+    animation: glow 5s infinite;
+  }
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s, background-color 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+  }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #333;
+    transform: scale(1.1);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+  }
+
+  nav img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: transform 0.4s ease;
+  }
+
+  nav img:hover {
+    transform: rotate(360deg);
+  }
+    /* Parallax Section */
+    .parallax {
+      height: 500px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0px 0px 10px #000;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  
+  /* Footer */
+  footer {
+  background: linear-gradient(120deg, #3B8A3E, #4CAF50); /* Matching gradient */
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 50px;
+  font-size: 1em;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top of the footer */
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer small {
+  display: block;
+  font-size: 0.9em;
+  color: #EAF6E3;
+}
+
+footer a {
+  color: #A5D6A7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffffff; /* Subtle hover effect */
+}
+
+    .translate-button {
+    background: linear-gradient(45deg, #4CAF50, #A5D6A7);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background 0.3s ease-in-out;
+  }
+
+  .translate-button:hover {
+    background: #3B8A3E;
+    transform: scale(1.1);
+  }
+
+    .translate-button:hover {
+      background-color: #3B8A3E;
+    }
+     /* Scroll to Top Button */
+   .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2db431;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
+    }
+
+    .scroll-to-top:hover {
+      background-color:  #2c642e;
+    }
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Space between buttons */
+  margin: 50px 0; /* Spacing from other sections */
+}
+
+/*  Buttons */
+a.button {
+  background: linear-gradient(120deg, #3B8A3E, #4CAF50); /* Matching navbar gradient */
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px; /* Sleek pill shape */
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Subtle depth */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add an animated gradient background */
+a.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(120deg, #A5D6A7, #3B8A3E, #4CAF50);
+  transition: left 0.4s ease;
+  z-index: 0;
+}
+
+a.button:hover::before {
+  left: 0; /* Gradient slides in */
+}
+
+a.button:hover {
+  color: #EAF6E3; /* Subtle text color change */
+  transform: translateY(-3px) scale(1.05); /* Slight upward hover effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger hover shadow */
+}
+
+a.button span {
+  position: relative;
+  z-index: 1; /* Ensure text is above gradient */
+}
+
+/* Button Active State */
+a.button:active {
+  transform: scale(0.98); /* Slight shrink effect on click */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+     /* Dropdown Menu */
+     .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      padding: 12px 16px;
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      color: #333;
+      text-decoration: none;
+      margin-bottom: 5px;
+      transition: color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      color: #3B8A3E;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+      }
+
+     
+
+      .parallax {
+        font-size: 1.5rem;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+      }
+
+      .parallax {
+        font-size: 1.2rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'es,fr,de,zh-CN,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header>
+    <nav>
+        <img src="vscode/IMG-20230619-WA003.jpg" alt="Logo" class="nav-logo">
+        <ul> 
+          
+          <li><a href="review rm.html">Review us</a></li>
+          <li><a href="mailto:ranchmicrobials1@gmail.com">Contact</a></li>
+        </ul>
+      <!-- Translation Button -->
+      <button class="translate-button" onclick="document.getElementById('google_translate_element').style.display='block';">Translate</button>
+    </nav>
+  </header>
+
+  <!-- Google Translate Widget -->
+  <div id="google_translate_element" style="display:none; margin: 20px; text-align: right;"></div>
+
+<!-- Parallax Section 1 -->
+<div class="parallax" style="background-image: url('vscode/sugar-cane-closeup-lush-plantation-background-concept-agriculture-crops-rural-life-farming-harvest_864588-46646.avif');">
+  <img src="vscode/IMG-20230619-WA0035.jpg" alt="Microbial Power" style="width: 400px; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);">
+</div>
+
+<hr>
+<header style="background: #3B8A3E; color: #fff; padding: 10px 0; text-align: center;">
+  <h1 style="font-size: 2.5rem; margin: 20px 0;">Our Services</h1>
+  <p>Delivering excellence in every aspect of your agricultural needs</p>
+<!-- Dropdown Menu -->
+<div class="dropdown">
+  <button style="background-color: #A5D6A7; color: #333; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Services</button>
+  <div class="dropdown-content">
+    <a href="#immunity-t">Immunity-T</a><hr>
+    <a href="#nemato-horticulture">Nemato Wrack - Horticulture</a><hr>
+    <a href="#nemato-vegetable">Nemato Wrack - Vegetable</a><hr>
+    <a href="#nutra-booster">Nutra Booster</a><hr>
+  </div>
+</div>
+</header>
+
+<div style="width: 80%; margin: 0 auto;">
+  <section style="margin-top: 40px;">
+      <!-- Service 1 -->
+      <div id="immunity-t" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+          <img src="vscode/Immunity-T 28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
+          <img src="vscode/IMMUNITY-T Hindi  28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
+          <div style="padding: 20px;">
+              <h3 style="font-size: 1.8rem; color: #3B8A3E;">Immunity-T</h3>
+              <p style="font-size: 1rem; color: #555; text-align: justify;">Immunity-T is a bio-based agricultural
+                 product containing beneficial microbes to
+                  enhance crop growth and health. It promotes
+                   root development, suppresses pathogens, boosts
+                    plant immunity, and increases yields by up to 
+                    10-15%. Suitable for all crops, it can be applied 
+                    via seed, soil, root treatments, or irrigation. Store in a cool place and use before expiry.</p>
+              <button onclick="alert('Contact us for more details!')" style="background: #3B8A3E; color: #fff; padding: 12px 20px; border: none; width: 100%; font-size: 1rem; cursor: pointer; transition: background 0.3s ease;" 
+                      onmouseover="this.style.background='#555'" onmouseout="this.style.background=' #3B8A3E'">Learn More</button>
+          </div>
+      </div>
+      
+      <!-- Service 2 -->
+      <div id="nemato-horticulture" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+          <img src="vscode/Nemato Horticultural  28.6.23.png" alt="Service 2" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="vscode/nemato wrack horticultural Hindi  28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
+          <div style="padding: 20px;">
+              <h3 style="font-size: 1.8rem; color: #3B8A3E;">Liquid Consortia Nemato Wrack – Horticulture              </h3>
+              <p style="font-size: 1rem; color: #555; text-align: justify;">Liquid Consortia Nemato Wrack is
+                 a bio-product for horticultural crops, containing rhizobacteria 
+                 that boost root growth, nutrient uptake, and plant resistance
+                  while suppressing nematodes. It improves productivity by
+                   10-15% and can be applied via seed, soil, root treatments,
+                    or irrigation. Store in a cool place and use before expiry.</p>
+              <button onclick="alert('Contact us for more details!')" style="background:  #3B8A3E; color: #fff; padding: 12px 20px; border: none; width: 100%; font-size: 1rem; cursor: pointer; transition: background 0.3s ease;" 
+                      onmouseover="this.style.background='#555'" onmouseout="this.style.background=' #3B8A3E'">Learn More</button>
+          </div>
+      </div>
+      
+      <!-- Service 3 -->
+      <div id="nemato-vegetable" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+          <img src="vscode/Nemato Vegetable  28.6.23.png" alt="Service 3" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="vscode/nemato wrack vegetable Hindi  28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
+          <div style="padding: 20px;">
+              <h3 style="font-size: 1.8rem; color: #3B8A3E;">Liquid Consortia Nemato Wrack – Vegetable</h3>
+              <p style="font-size: 1rem; color: #555; text-align: justify;">Liquid Consortia Nemato Wrack for
+                 vegetables contains beneficial rhizobacteria that enhance
+                  root growth, nutrient uptake, and plant immunity while
+                   suppressing nematodes. It boosts crop yields by 10-15%
+                    and can be applied via seed, soil, or root treatments,
+                     or irrigation. Store in a cool, shaded place and use before expiry.</p>
+              <button onclick="alert('Contact us for more details!')" style="background:  #3B8A3E; color: #fff; padding: 12px 20px; border: none; width: 100%; font-size: 1rem; cursor: pointer; transition: background 0.3s ease;" 
+                      onmouseover="this.style.background='#555'" onmouseout="this.style.background=' #3B8A3E'">Learn More</button>
+          </div>
+      </div>
+
+       <!-- Service 4 -->
+       <div id="nutra-booster" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+        <img src="vscode/Nutra Booster 28.6.23.png" alt="Service 3" style="width: 100%; height:100%; object-fit: cover;">
+        <img src="vscode/nutra booster  Hindi  28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
+        <div style="padding: 20px;">
+            <h3 style="font-size: 1.8rem; color:  #3B8A3E;">Nutra Booster</h3>
+            <p style="font-size: 1rem; color: #555; text-align: justify;">Nutra Booster is
+               a biofertilizer with nitrogen-fixing, phosphate-
+                and potash-solubilizing bacteria, enhancing soil
+                 fertility and crop productivity. It promotes root 
+                 growth, nutrient availability, plant immunity, and
+                  yields by 10-15%. Suitable for all crops, it’s used 
+                  in seed, soil, and root treatments and drip irrigation.
+                   Store in a cool place and use before expiry.</p>
+            <button onclick="alert('Contact us for more details!')" style="background:  #3B8A3E; color: #fff; padding: 12px 20px; border: none; width: 100%; font-size: 1rem; cursor: pointer; transition: background 0.3s ease;" 
+                    onmouseover="this.style.background='#555'" onmouseout="this.style.background=' #3B8A3E'">Learn More</button>
+        </div>
+    </div>
+  </section>
+
+  <!-- Interactive Section -->
+  <section style="display: flex; justify-content: center; align-items: center; background: #3B8A3E; color: #fff; padding: 50px; margin-top: 40px; border-radius: 10px;">
+      <div>
+          <h2 style="font-size: 2rem; margin-bottom: 20px;">Get in touch with us!</h2><br><br>
+          
+        <a href="mailto:ranchmicrobials1@gmail.com"><button style="padding: 10px 20px; font-size: 1rem; border: none; background: #fff; color: #333; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;" 
+                  onmouseover="this.style.background='#ddd'" onmouseout="this.style.background='#fff'">Mail Us!</button></a>
+      </div>
+  </section>
+</div>
+
+ <!--buttons-->
+<div class="buttons-container">
+  <a href="index.html" class="button"><span>Home Page</span></a>
+  <a href="review rm.html" class="button"><span>Write Review</span></a>
+</div>
+
+
+<!-- Back to Top Button -->
+<button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">&uarr;</button>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Ranch Microbials | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  <small>Designed by Team Ranch Microbials. All rights reserved.</small>
+</footer>
+
+
+
+</body>
+</html>

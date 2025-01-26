@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranch Microbials</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #d6e9be, #f8f6e0);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color:#333;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, #3B8A3E, #2db431, #A5D6A7);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 25px 25px;
+    animation: glow 5s infinite;
+  }
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s, background-color 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+  }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #333;
+    transform: scale(1.1);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+  }
+
+  nav img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: transform 0.4s ease;
+  }
+
+  nav img:hover {
+    transform: rotate(360deg);
+  }
+
+
+    /* Parallax Section */
+    .parallax {
+      height: 500px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0px 0px 10px #000;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Cards Section */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 20px;
+    }
+
+    .card {
+      position: relative;
+      width: 350px;
+      height: 450px;
+      background-color: #fff;
+      border-radius: 100px;
+      overflow: hidden;
+      transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      background: rgba(52, 53, 52, 0.8);
+      z-index: 1;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .card .card-reveal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(52, 53, 52, 0.8);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(100%);
+      padding: 20px;
+     
+    }
+
+    .card:hover .card-reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover .card-content {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    /* Footer */
+    footer {
+  background: linear-gradient(120deg, #3B8A3E, #4CAF50); /* Matching gradient */
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 50px;
+  font-size: 1em;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top of the footer */
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer small {
+  display: block;
+  font-size: 0.9em;
+  color: #EAF6E3;
+}
+
+footer a {
+  color: #A5D6A7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffffff; /* Subtle hover effect */
+}
+
+    .translate-button {
+    background: linear-gradient(45deg, #4CAF50, #A5D6A7);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background 0.3s ease-in-out;
+  }
+
+  .translate-button:hover {
+    background: #3B8A3E;
+    transform: scale(1.1);
+  }
+
+    .translate-button:hover {
+      background-color: #3B8A3E;
+    }
+     /* Scroll to Top Button */
+   .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2db431;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
+    }
+
+    .scroll-to-top:hover {
+      background-color:  #2c642e;
+    }
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Space between buttons */
+  margin: 50px 0; /* Spacing from other sections */
+}
+
+/*  Buttons */
+a.button {
+  background: linear-gradient(120deg, #3B8A3E, #4CAF50); /* Matching navbar gradient */
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px; /* Sleek pill shape */
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Subtle depth */
+  position: relative;
+  overflow: hidden;
+}
+
+
+a.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(120deg, #A5D6A7, #3B8A3E, #4CAF50);
+  transition: left 0.4s ease;
+  z-index: 0;
+}
+
+a.button:hover::before {
+  left: 0; /* Gradient slides in */
+}
+
+a.button:hover {
+  color: #EAF6E3; /* Subtle text color change */
+  transform: translateY(-3px) scale(1.05); /* Slight upward hover effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger hover shadow */
+}
+
+a.button span {
+  position: relative;
+  z-index: 1; /* Ensure text is above gradient */
+}
+
+/* Button Active State */
+a.button:active {
+  transform: scale(0.98); /* Slight shrink effect on click */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+      }
+
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .parallax {
+        font-size: 1.5rem;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+      }
+
+      .parallax {
+        font-size: 1.2rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'es,fr,de,zh-CN,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header>
+    <nav>
+        <img src="vscode/IMG-20230619-WA003.jpg" alt="Logo" class="nav-logo">
+        <ul> 
+          <li><a href="#about">About</a></li>
+          <li><a href="ranch microbials 2.html">Services</a></li>
+          <li><a href="mailto:ranchmicrobials1@gmail.com">Contact</a></li>
+        </ul>
+      <!-- Translation Button -->
+      <button class="translate-button" onclick="document.getElementById('google_translate_element').style.display='block';">Translate</button>
+    </nav>
+  </header>
+
+  <!-- Google Translate Widget -->
+  <div id="google_translate_element" style="display:none; margin: 20px; text-align: right;"></div>
+
+ <!-- Parallax Section 1 -->
+<div class="parallax" style="background-image: url('vscode/sugar-cane-closeup-lush-plantation-background-concept-agriculture-crops-rural-life-farming-harvest_864588-46646.avif');">
+    <img src="vscode/IMG-20230619-WA0035.jpg" alt="Microbial Power" style="width: 400px; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);">
+  </div>
+  
+
+  <!-- Cards Section -->
+  <div class="cards-container">
+    <div class="card" style="background-image: url('vscode/download.jpg');">
+      <div class="card-content">
+        <h3>Our Microbes</h3>
+        <p>Hover over me to reveal more!</p>
+      </div>
+      <div class="card-reveal">
+        <p>Our microbes are nature's unseen allies, offering innovative solutions for a healthier, more sustainable world.</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('vscode/images.jpg');">
+      <div class="card-content">
+        <h3>Impact on Soil</h3>
+        <p>Hover over me to reveal more!</p>
+      </div>
+      <div class="card-reveal">
+        <p>Our microbes play a vital role in enriching soil health by promoting nutrient cycling and improving soil fertility.</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('vscode/download (1).jpg');">
+      <div class="card-content">
+        <h3>Higher Yield</h3>
+        <p>Hover over me to reveal more!</p>
+      </div>
+      <div class="card-reveal">
+        <p>Our microbes help achieve higher crop yields by enhancing nutrient uptake and boosting plant resilience.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote Section -->
+<div style="font-family: 'Segoe UI Semibold', sans-serif; font-size: 15px; font-weight: bold; text-align: center; color: #000000; text-shadow: 0 0 5px #6DECB9, 0 0 10px #E3FCBF, 0 0 15px #E3FCBF, 0 0 20px #14C38E, 0 0 30px #14C38E, 0 0 40px #14C38E; margin: 20px 0;">
+    <h1 style="font-size: 1.8em; line-height: 1.4; margin: 0;">~From the Invisible to the Essential: Using Microbial Innovation to Build a Healthier, More Connected Future for All.~</h1>
+  </div>
+  <hr style="border: 1px solid #A5D6A7; margin: 20px 0;">
+  
+  <!-- Information Section -->
+  <div id="about" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 40px; gap: 20px;">
+    <!-- Mission -->
+    <div style="flex: 1; padding: 20px;">
+      <h2 style="font-weight: bold; color: #4CAF50; font-size: 2.5em; margin: 0 0 10px;">Our Mission</h2>
+      <p style="font-size: 1.2em; line-height: 1.6; color: #333; margin: 0;">At Ranch Microbials, our mission is to harness the power 
+        of microorganisms to create innovative, sustainable, and eco-friendly
+        solutions that improve the health of our planet and its inhabitants.
+        By advancing cutting-edge microbial technology, we aim to provide safe,
+        effective, and scalable solutions in industries such as agriculture,
+        environmental management, and biotechnology. We are committed to fostering
+        a cleaner, greener future through the responsible use of microbes, driving
+        progress in science, and promoting sustainability for generations to come.
+      </p>
+    </div>
+    <div style="flex: 0 0 300px;">
+      <img src="vscode/IMG-20211229-WA0002.jpg" alt="Our Mission" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    </div>
+  </div>
+  
+  <!-- Promise -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 40px; gap: 20px;">
+    <div style="flex: 1; padding: 20px;">
+      <h2 style="font-weight: bold; color: #4CAF50; font-size: 2.5em; margin: 0 0 10px;">Our Promise</h2>
+      <p style="font-size: 1.2em; line-height: 1.6; color: #333; margin: 0;">We promise to relentlessly innovate and deliver microbial 
+        solutions that are not only scientifically advanced but also
+        environmentally responsible. With a commitment to quality,
+        sustainability, and ethical practices, we pledge to prioritize 
+        the well-being of both our planet and its people. Our dedication
+        to excellence ensures that every product and service we offer is safe,
+        effective, and designed to make a positive, lasting impact on the world.
+      </p>
+    </div>
+    <div style="flex: 0 0 300px;">
+      <img src="vscode/IMG-20240318-WA0016.jpg" alt="Our Promise" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    </div>
+  </div>
+  <!--buttons-->
+  <div class="buttons-container">
+    <a href="review rm.html" class="button"><span>Write Review</span></a>
+    <a href="ranch microbials 2.html" class="button"><span>Services</span></a>
+  </div>
+  
+  
+ <!-- Back to Top Button -->
+<button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">&uarr;</button>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Ranch Microbials | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    <small>Designed by Team Ranch Microbials. All rights reserved.</small>
+  </footer>
+
+</body>
+</html>

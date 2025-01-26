@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranch Microbials</title>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "service_rq41995",
+      });
+   })();
+</script>
+<script src="review.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #d6e9be, #f8f6e0);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color:#333;
+      line-height: 1.6;
+    }
+
+     /* Navigation Bar */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, #3B8A3E, #2db431, #A5D6A7);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 25px 25px;
+    animation: glow 5s infinite;
+  }
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s, background-color 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+  }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #333;
+    transform: scale(1.1);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+  }
+
+  nav img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: transform 0.4s ease;
+  }
+
+  nav img:hover {
+    transform: rotate(360deg);
+  }
+    /* Parallax Section */
+    .parallax {
+      height: 500px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0px 0px 10px #000;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  /* Footer */
+  footer {
+  background: linear-gradient(120deg, #3B8A3E, #4CAF50); /* Matching gradient */
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 50px;
+  font-size: 1em;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top of the footer */
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer small {
+  display: block;
+  font-size: 0.9em;
+  color: #EAF6E3;
+}
+
+footer a {
+  color: #A5D6A7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffffff; /* Subtle hover effect */
+}
+
+    .translate-button {
+    background: linear-gradient(45deg, #4CAF50, #A5D6A7);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background 0.3s ease-in-out;
+  }
+
+  .translate-button:hover {
+    background: #3B8A3E;
+    transform: scale(1.1);
+  }
+
+    .translate-button:hover {
+      background-color: #3B8A3E;
+    }
+     /* Scroll to Top Button */
+   .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2db431;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
+    }
+
+    .scroll-to-top:hover {
+      background-color:  #2c642e;
+    }
+
+    .buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Space between buttons */
+  margin: 50px 0; /* Spacing from other sections */
+}
+
+/*  Buttons */
+a.button {
+  background: linear-gradient(120deg, #3B8A3E, #4CAF50); /* Matching navbar gradient */
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px; /* Sleek pill shape */
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Subtle depth */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add an animated gradient background */
+a.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(120deg, #A5D6A7, #3B8A3E, #4CAF50);
+  transition: left 0.4s ease;
+  z-index: 0;
+}
+
+a.button:hover::before {
+  left: 0; /* Gradient slides in */
+}
+
+a.button:hover {
+  color: #EAF6E3; /* Subtle text color change */
+  transform: translateY(-3px) scale(1.05); /* Slight upward hover effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger hover shadow */
+}
+
+a.button span {
+  position: relative;
+  z-index: 1; /* Ensure text is above gradient */
+}
+
+/* Button Active State */
+a.button:active {
+  transform: scale(0.98); /* Slight shrink effect on click */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+      }
+
+     
+
+      .parallax {
+        font-size: 1.5rem;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+      }
+
+      .parallax {
+        font-size: 1.2rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'es,fr,de,zh-CN,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header>
+    <nav>
+        <img src="vscode/IMG-20230619-WA003.jpg" alt="Logo" class="nav-logo">
+        <ul> 
+         
+          <li><a href="ranch microbials 2.html">Services</a></li>
+          <li><a href="mailto:ranchmicrobials1@gmail.com">Contact</a></li>
+        </ul>
+      <!-- Translation Button -->
+      <button class="translate-button" onclick="document.getElementById('google_translate_element').style.display='block';">Translate</button>
+    </nav>
+  </header>
+
+  <!-- Google Translate Widget -->
+  <div id="google_translate_element" style="display:none; margin: 20px; text-align: right;"></div>
+
+
+  <!-- Parallax Section -->
+  <div class="parallax" style="background-image: url('vscode/sugar-cane-closeup-lush-plantation-background-concept-agriculture-crops-rural-life-farming-harvest_864588-46646.avif');">
+    <img src="vscode/IMG-20230619-WA0035.jpg" alt="Microbial Power" style="width: 400px; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);">
+  </div>
+
+  <hr>
+  
+  <!-- Review Section -->
+  <div style="text-align: center; margin: 40px 0;">
+    <h1 style="color: #3B8A3E; font-size: 60px;">Your Opinions Matter</h1>
+    <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 90%; max-width: 600px; margin: 20px auto;">
+      <h2 style="text-align: center; font-weight: bold; color: #333;">Review Form</h2>
+      <form id="reviewForm">
+        <label for="username" style="font-weight: bold; display: block; margin-top: 10px;">Full Name:</label>
+        <input type="text" id="username" name="username" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;" required>
+  
+        <label for="contact" style="font-weight: bold; display: block;">Email or Phone Number:</label>
+        <input type="text" id="contact" name="contact" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;" required>
+  
+        <label for="rating" style="font-weight: bold; display: block;">Rating (1-5):</label>
+        <select id="rating" name="rating" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;" required>
+          <option value="1">1 - Poor</option>
+          <option value="2">2 - Fair</option>
+          <option value="3">3 - Good</option>
+          <option value="4">4 - Very Good</option>
+          <option value="5">5 - Excellent</option>
+        </select>
+  
+        <label for="product_service" style="font-weight: bold; display: block;">Product or Service:</label>
+        <select id="product_service" name="product_service" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;" required>
+          <option value="Acetobacter">Acetobacter</option>
+          <option value="Azospirillum">Azospirillum</option>
+          <option value="Azotobacter">Azotobacter</option>
+          <option value="Mycorrhizal Biofertilizer">Mycorrhizal Biofertilizer</option>
+          <option value="Potassium Solubilizing Bacteria">Potassium Solubilizing Bacteria</option>
+          <option value="Phosphate Solubilizing Bacteria">Phosphate Solubilizing Bacteria</option>
+          <option value="Rhizobium">Rhizobium</option>
+          <option value="Zinc Solubilizing Bacteria">Zinc Solubilizing Bacteria</option>
+          <option value="Nutra Booster">Nutra Booster</option>
+        </select>
+  
+        <label for="description" style="font-weight: bold; display: block;">Description:</label>
+        <textarea id="description" name="description" rows="4" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;" required></textarea>
+  
+        <input type="submit" value="Submit Review" onclick="sendMail()" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">
+      </form>
+    </div>
+  </div>
+  
+  <hr>
+ <!--buttons-->
+ <div class="buttons-container">
+  <a href="index.html" class="button"><span>Home Page</span></a>
+  <a href="ranch microbials 2.html" class="button"><span>Services</span></a>
+</div>
+
+
+<!-- Back to Top Button -->
+<button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">&uarr;</button>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Ranch Microbials | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  <small>Designed by Team Ranch Microbials. All rights reserved.</small>
+</footer>
+
+
+</body>
+</html>
