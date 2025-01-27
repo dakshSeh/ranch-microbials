@@ -85,7 +85,7 @@
   }
     /* Parallax Section */
     .parallax {
-      height: 500px;
+      height: 800px;
       background-attachment: fixed;
       background-position: center;
       background-repeat: no-repeat;
@@ -235,38 +235,42 @@ a.button:active {
   transform: scale(0.98); /* Slight shrink effect on click */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-     /* Dropdown Menu */
-     .dropdown {
-      position: relative;
-      display: inline-block;
-      margin-top: 10px;
-    }
+  /* Products List Styling */
+.container h1 {
+  font-size: 2.2rem;
+  color: #3B8A3E;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      padding: 12px 16px;
-      border-radius: 5px;
-      z-index: 1;
-    }
+.container ul {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px; /* Center the list */
+}
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+.container li {
+  background: linear-gradient(45deg, #4CAF50, #A5D6A7); /* Stylish gradient background */
+  color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px; /* Rounded corners */
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    .dropdown-content a {
-      display: block;
-      color: #333;
-      text-decoration: none;
-      margin-bottom: 5px;
-      transition: color 0.3s;
-    }
+.container li:hover {
+  transform: scale(1.05); /* Slight pop-out effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
 
-    .dropdown-content a:hover {
-      color: #3B8A3E;
-    }
+.container li span {
+  font-weight: bold; /* Highlight product name */
+}
+
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -301,6 +305,7 @@ a.button:active {
         font-size: 0.8rem;
       }
     }
+   
   </style>
   <script>
     function googleTranslateElementInit() {
@@ -340,76 +345,33 @@ a.button:active {
 <hr>
 <header style="background: #3B8A3E; color: #fff; padding: 10px 0; text-align: center;">
   <h1 style="font-size: 2.5rem; margin: 20px 0;">Our Services</h1>
-  <p>Delivering excellence in every aspect of your agricultural needs</p>
-<!-- Dropdown Menu -->
-<div class="dropdown">
-  <button style="background-color: #A5D6A7; color: #333; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Services</button>
-  <div class="dropdown-content">
-    <a href="#immunity-t">Immunity-T</a><hr>
-    <a href="#nemato-horticulture">Nemato Wrack - Horticulture</a><hr>
-    <a href="#nemato-vegetable">Nemato Wrack - Vegetable</a><hr>
-    <a href="#nutra-booster">Nutra Booster</a><hr>
-  </div>
+  <p>Delivering excellence in every aspect of your agricultural needs</p></header>
+  <!--produucts list-->
+  <div class="container">
+    <h1>Our Products</h1>
+    <ul>
+        <li><span>1. Acetobacter</span></li>
+        <li><span>2. Azospirillum</span></li>
+        <li><span>3. Azotobacter</span></li>
+        <li><span>4. Mycorrhizal Biofertilizer</span></li>
+        <li><span>5. Potassium Solubilizing Bacteria</span></li>
+        <li><span>6. Phosphate Solubilizing/Mobilizing Bacteria</span></li>
+        <li><span>7. Rhizobium</span></li>
+        <li><span>8. Zinc Solubilizing Bacteria</span></li>
+        <li><span>9. Liquid Consortia</span></li>
+        <li><span>10. Nutra Booster</span></li>
+        <li><span>11. Nemato Wrack – Horticulture</span></li>
+        <li><span>12. Nemato Wrack – Vegetable</span></li>
+        <li><span>13. Immunity-T</span></li>
+    </ul>
 </div>
-</header>
 
 <div style="width: 80%; margin: 0 auto;">
   <section style="margin-top: 40px;">
-      <!-- Service 1 -->
-      <div id="immunity-t" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
-          <img src="vscode/Immunity-T 28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
-          <img src="vscode/IMMUNITY-T Hindi  28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
-          <div style="padding: 20px;">
-              <h3 style="font-size: 1.8rem; color: #3B8A3E;">Immunity-T</h3>
-              <p style="font-size: 1rem; color: #555; text-align: justify;">Immunity-T is a bio-based agricultural
-                 product containing beneficial microbes to
-                  enhance crop growth and health. It promotes
-                   root development, suppresses pathogens, boosts
-                    plant immunity, and increases yields by up to 
-                    10-15%. Suitable for all crops, it can be applied 
-                    via seed, soil, root treatments, or irrigation. Store in a cool place and use before expiry.</p>
-              <button onclick="alert('Contact us for more details!')" style="background: #3B8A3E; color: #fff; padding: 12px 20px; border: none; width: 100%; font-size: 1rem; cursor: pointer; transition: background 0.3s ease;" 
-                      onmouseover="this.style.background='#555'" onmouseout="this.style.background=' #3B8A3E'">Learn More</button>
-          </div>
-      </div>
-      
-      <!-- Service 2 -->
-      <div id="nemato-horticulture" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
-          <img src="vscode/Nemato Horticultural  28.6.23.png" alt="Service 2" style="width: 100%; height: 100%; object-fit: cover;">
-          <img src="vscode/nemato wrack horticultural Hindi  28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
-          <div style="padding: 20px;">
-              <h3 style="font-size: 1.8rem; color: #3B8A3E;">Liquid Consortia Nemato Wrack – Horticulture              </h3>
-              <p style="font-size: 1rem; color: #555; text-align: justify;">Liquid Consortia Nemato Wrack is
-                 a bio-product for horticultural crops, containing rhizobacteria 
-                 that boost root growth, nutrient uptake, and plant resistance
-                  while suppressing nematodes. It improves productivity by
-                   10-15% and can be applied via seed, soil, root treatments,
-                    or irrigation. Store in a cool place and use before expiry.</p>
-              <button onclick="alert('Contact us for more details!')" style="background:  #3B8A3E; color: #fff; padding: 12px 20px; border: none; width: 100%; font-size: 1rem; cursor: pointer; transition: background 0.3s ease;" 
-                      onmouseover="this.style.background='#555'" onmouseout="this.style.background=' #3B8A3E'">Learn More</button>
-          </div>
-      </div>
-      
-      <!-- Service 3 -->
-      <div id="nemato-vegetable" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
-          <img src="vscode/Nemato Vegetable  28.6.23.png" alt="Service 3" style="width: 100%; height: 100%; object-fit: cover;">
-          <img src="vscode/nemato wrack vegetable Hindi  28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
-          <div style="padding: 20px;">
-              <h3 style="font-size: 1.8rem; color: #3B8A3E;">Liquid Consortia Nemato Wrack – Vegetable</h3>
-              <p style="font-size: 1rem; color: #555; text-align: justify;">Liquid Consortia Nemato Wrack for
-                 vegetables contains beneficial rhizobacteria that enhance
-                  root growth, nutrient uptake, and plant immunity while
-                   suppressing nematodes. It boosts crop yields by 10-15%
-                    and can be applied via seed, soil, or root treatments,
-                     or irrigation. Store in a cool, shaded place and use before expiry.</p>
-              <button onclick="alert('Contact us for more details!')" style="background:  #3B8A3E; color: #fff; padding: 12px 20px; border: none; width: 100%; font-size: 1rem; cursor: pointer; transition: background 0.3s ease;" 
-                      onmouseover="this.style.background='#555'" onmouseout="this.style.background=' #3B8A3E'">Learn More</button>
-          </div>
-      </div>
 
-       <!-- Service 4 -->
+       <!-- Service 1 -->
        <div id="nutra-booster" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
-        <img src="vscode/Nutra Booster 28.6.23.png" alt="Service 3" style="width: 100%; height:100%; object-fit: cover;">
+        <img src="vscode/Nutra Booster 28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
         <img src="vscode/nutra booster  Hindi  28.6.23.png" alt="Service 1" style="width: 100%; height:100%; object-fit: cover;">
         <div style="padding: 20px;">
             <h3 style="font-size: 1.8rem; color:  #3B8A3E;">Nutra Booster</h3>
@@ -426,6 +388,21 @@ a.button:active {
         </div>
     </div>
   </section>
+  <div style="width: 80%; margin: 0 auto;">
+    <section style="margin-top: 40px;">
+  
+         <!-- Service 2 -->
+         <div id="seed soldiers" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+          <img src="vscode/IMG-20250126-WA0049.jpg" alt="Service 2" style="width: 100%; height:100%; object-fit: cover;">
+          <div style="padding: 20px;">
+              <h3 style="font-size: 1.8rem; color:  #3B8A3E;">Seed Soldiers</h3>
+              <p style="font-size: 1rem; color: #555; text-align: justify;">Seed Soldiers is a microbial formulation for seed treatment, boosting germination, root growth, soil fertility, and crop productivity by 10-15%. It enhances nutrient availability, strengthens plant immunity, and improves resistance to pathogens. Mix with jaggery solution, coat seeds, and sow for sustainable farming benefits.</p>
+              <button onclick="alert('Contact us for more details!')" style="background:  #3B8A3E; color: #fff; padding: 12px 20px; border: none; width: 100%; font-size: 1rem; cursor: pointer; transition: background 0.3s ease;" 
+                      onmouseover="this.style.background='#555'" onmouseout="this.style.background=' #3B8A3E'">Learn More</button>
+          </div>
+      </div>
+    </section>
+  
 
   <!-- Interactive Section -->
   <section style="display: flex; justify-content: center; align-items: center; background: #3B8A3E; color: #fff; padding: 50px; margin-top: 40px; border-radius: 10px;">
@@ -457,4 +434,4 @@ a.button:active {
 
 
 </body>
-</html>
+</html>          
